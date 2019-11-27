@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/fog.jpg" type="Texture" id=1]
+
+[node name="Sprite" type="Sprite"]
+modulate = Color( 1, 1, 1, 0.247059 )
+position = Vector2( 632.776, 179.441 )
+scale = Vector2( 0.624699, 0.624699 )
+texture = ExtResource( 1 )

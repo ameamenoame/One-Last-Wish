@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/BGs/bedroom.png" type="Texture" id=1]
+[ext_resource path="res://BG.gd" type="Script" id=2]
+[ext_resource path="res://Assets/BGs/mochi under bedroom .png" type="Texture" id=3]
+[ext_resource path="res://Assets/BGs/box close.png" type="Texture" id=4]
+[ext_resource path="res://Assets/BGs/diary.png" type="Texture" id=5]
+[ext_resource path="res://npc_int.gd" type="Script" id=6]
+[ext_resource path="res://Assets/BGs/doll_found.png" type="Texture" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 116.386
+
+[node name="BG" type="Sprite"]
+editor/display_folded = true
+position = Vector2( 674.719, 391.529 )
+scale = Vector2( 0.7225, 0.7225 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="mochi" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 3 )
+
+[node name="BG2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 4 )
+
+[node name="diary" type="Sprite" parent="."]
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 5 )
+
+[node name="interactable" type="Area2D" parent="diary"]
+scale = Vector2( 3.4047, 2.58829 )
+monitoring = false
+monitorable = false
+script = ExtResource( 6 )
+dia_flag = true
+dia_id = "bedroom_diary"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="diary/interactable"]
+position = Vector2( 16.9695, -1.31305 )
+scale = Vector2( 0.877071, 1.12882 )
+shape = SubResource( 1 )
+
+[node name="BG4" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 7 )
+
+[node name="transition" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="Tween" type="Tween" parent="."]
+playback_speed = 0.5
+playback/speed = 0.5
+
+[node name="action_tween" type="Tween" parent="."]
+
+[node name="delayed_action" type="Timer" parent="."]
+one_shot = true

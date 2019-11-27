@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://NPC.gd" type="Script" id=1]
+[ext_resource path="res://Assets/icon.png" type="Texture" id=2]
+[ext_resource path="res://npc_int.gd" type="Script" id=3]
+
+
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 33.9488, 33.1497 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 64.8516, 58.0429 )
+
+[node name="NPC" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 10 )
+disabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="npc_int" type="Area2D" parent="."]
+editor/display_folded = true
+gravity_point = true
+script = ExtResource( 3 )
+max_dia = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npc_int"]
+shape = SubResource( 4 )
+[connection signal="timeout" from="Timer" to="." method="walk"]

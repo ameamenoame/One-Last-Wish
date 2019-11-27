@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/SMRT/dialog.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/data_pck-0000000063.png" type="Texture" id=2]
+[ext_resource path="res://addons/SMRT/dialog.gd" type="Script" id=3]
+[ext_resource path="res://addons/SMRT/faces/dialog.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://delay.gd" type="Script" id=5]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+editor/display_folded = true
+
+[node name="SMRT" type="NinePatchRect" parent="." instance=ExtResource( 1 )]
+margin_right = 384.0
+margin_bottom = 76.0
+texture = ExtResource( 2 )
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 3
+patch_margin_bottom = 4
+script = ExtResource( 3 )
+language = "res://Dialogue Shit/test.lan"
+face_sprites = ExtResource( 4 )
+
+[node name="delay" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.5
+one_shot = true
+script = ExtResource( 5 )
+[connection signal="timeout" from="delay" to="delay" method="_on_delay_timeout"]

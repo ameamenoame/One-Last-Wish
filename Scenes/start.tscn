@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://start.gd" type="Script" id=1]
+[ext_resource path="res://Assets/BGs/title_screen.png" type="Texture" id=2]
+[ext_resource path="res://BG.gd" type="Script" id=3]
+[ext_resource path="res://Assets/cold_minimalist_mountains_by_coconutoos_dcd97du-fullview.jpg" type="Texture" id=4]
+[ext_resource path="res://Assets/icon.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Music/deeds_track.ogg" type="AudioStream" id=6]
+
+
+[node name="title_screen" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 0.554971, 0.554971 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="BG"]
+
+[node name="action_tween" type="Tween" parent="BG"]
+
+[node name="transition" type="Sprite" parent="BG"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -996.811, -562.957 )
+scale = Vector2( 1.99911, 1.99911 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="start" type="TextureButton" parent="."]
+modulate = Color( 0.905882, 0, 0, 0 )
+margin_left = 445.635
+margin_top = 487.12
+margin_right = 613.635
+margin_bottom = 516.12
+texture_normal = ExtResource( 5 )
+expand = true
+
+[node name="quit" type="TextureButton" parent="."]
+modulate = Color( 0.0588235, 0.0196078, 0.0196078, 0 )
+margin_left = 479.053
+margin_top = 523.526
+margin_right = 584.053
+margin_bottom = 559.526
+texture_normal = ExtResource( 5 )
+expand = true
+
+[node name="label" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 303.789
+margin_top = 43.1228
+margin_right = 350.789
+margin_bottom = 74.1228
+rect_scale = Vector2( 10, 10 )
+text = "THE GAME"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+[connection signal="tween_completed" from="BG/action_tween" to="." method="start"]
+[connection signal="pressed" from="start" to="." method="start_game"]
+[connection signal="pressed" from="quit" to="." method="quit_game"]

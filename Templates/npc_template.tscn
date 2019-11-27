@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/icon.png" type="Texture" id=1]
+[ext_resource path="res://NPC.gd" type="Script" id=2]
+[ext_resource path="res://npc_int.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 54.8043, 36.7444 )
+
+[node name="NPC" type="Sprite"]
+scale = Vector2( 3.4047, 2.58829 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="npc_int" type="Area2D" parent="."]
+script = ExtResource( 3 )
+dia_flag = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npc_int"]
+shape = SubResource( 1 )
