@@ -5,4 +5,4 @@ The SMRT Dialogue (by BrunoSXS) plugin files are all in the 'addons' folder. Som
 
 Terrible, rushed code in all its glory.
 You can find the game here:
-https://choppa2.itch.io/one-last-wish
+https://fsnowdin.itch.io/one-last-wish
